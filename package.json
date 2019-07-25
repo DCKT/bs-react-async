@@ -1,0 +1,27 @@
+{
+  "name": "@dck/bs-react-async",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "keywords": [
+    "BuckleScript",
+    "ReasonML",
+    "BuckleScript bindings",
+    "react",
+    "react-async"
+  ],
+  "author": "Thomas Deconinck",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-async": "^7.0.5",
+    "reason-react": "^0.7.0"
+  },
+  "devDependencies": {
+    "bs-platform": "5.0.6",
+    "reason-react": "^0.7.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@dck/bs-react-async",
+  "version": "0.1.0",
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": true
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": ["reason-react"],
+  "warnings": {
+    "error": "+101"
+  },
+  "namespace": false,
+  "refmt": 3
+}
