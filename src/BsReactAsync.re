@@ -73,7 +73,7 @@ module ReactAsync = {
 
   [@bs.module "react-async"]
   external useAsync:
-    ('a => Js.Promise.t('b), ~options: options('c, 'd, 'e, 'f), unit) =>
+    ('a => Js.Promise.t('b), ~options: options('c, 'd, 'e, 'f)=?, unit) =>
     Req.t =
     "useAsync";
 };
