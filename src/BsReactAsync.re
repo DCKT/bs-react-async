@@ -19,20 +19,35 @@ module ReactAsync = {
   module Components = {
     module Pending = {
       [@bs.module "react-async"] [@react.component]
-      external make: (~state: Req.t, ~children: React.element) => React.element =
+      external make:
+        (~state: Req.t, ~persist: bool=?, ~children: React.element) =>
+        React.element =
         "Pending";
     };
     module Rejected = {
       [@bs.module "react-async"] [@react.component]
       external make:
-        (~state: Req.t, ~children: Js.Exn.t => React.element) => React.element =
+        (
+          ~state: Req.t,
+          ~persist: bool=?,
+          ~children: Js.Exn.t => React.element
+        ) =>
+        React.element =
         "Rejected";
     };
     module Fulfilled = {
       [@bs.module "react-async"] [@react.component]
       external make:
-        (~state: Req.t, ~children: 'a => React.element) => React.element =
+        (~state: Req.t, ~persist: bool=?, ~children: 'a => React.element) =>
+        React.element =
         "Fulfilled";
+    };
+    module Settled = {
+      [@bs.module "react-async"] [@react.component]
+      external make:
+        (~state: Req.t, ~persist: bool=?, ~children: 'a => React.element) =>
+        React.element =
+        "Settled";
     };
   };
 
@@ -49,9 +64,9 @@ module ReactAsync = {
     [@bs.optional]
     promise: Js.Promise.t('t),
     [@bs.optional]
-    onResolve: unit => unit,
+    onResolve: 'a => unit,
     [@bs.optional]
-    onReject: unit => unit,
+    onReject: Js.Exn.t => unit,
     [@bs.optional]
     onCancel: unit => unit,
   };

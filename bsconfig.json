@@ -1,6 +1,6 @@
 {
   "name": "@dck/bs-react-async",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "sources": {
     "dir": "src",
     "subdirs": true
