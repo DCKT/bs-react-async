@@ -1,6 +1,6 @@
 {
   "name": "@dck/bs-react-async",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "sources": {
     "dir": "src",
     "subdirs": true
@@ -15,5 +15,8 @@
     "error": "+101"
   },
   "namespace": false,
-  "refmt": 3
+  "refmt": 3,
+  "reason": {
+    "react-jsx": 3
+  }
 }
