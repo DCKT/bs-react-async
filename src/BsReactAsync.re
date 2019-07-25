@@ -13,6 +13,7 @@ module ReactAsync = {
     [@bs.get] external isSettled: t => bool = "isSettled";
     [@bs.get] external isFulfilled: t => bool = "isFulfilled";
     [@bs.get] external isInitial: t => bool = "isInitial";
+    [@bs.send] external reload: t => bool = "reload";
   };
 
   module Components = {
@@ -35,7 +36,29 @@ module ReactAsync = {
     };
   };
 
+  [@bs.deriving abstract]
+  type options('a, 'b, 'i, 't) = {
+    [@bs.optional]
+    initialValue: 'i,
+    [@bs.optional]
+    watch: 'a,
+    [@bs.optional]
+    watchFn: 'a => 'b,
+    [@bs.optional]
+    debugLabel: string,
+    [@bs.optional]
+    promise: Js.Promise.t('t),
+    [@bs.optional]
+    onResolve: unit => unit,
+    [@bs.optional]
+    onReject: unit => unit,
+    [@bs.optional]
+    onCancel: unit => unit,
+  };
+
   [@bs.module "react-async"]
-  external useAsync: ('a => Js.Promise.t('b), ~options: 'a=?, unit) => Req.t =
+  external useAsync:
+    ('a => Js.Promise.t('b), ~options: options('c, 'd, 'e, 'f), unit) =>
+    Req.t =
     "useAsync";
 };
