@@ -20,7 +20,7 @@ Add it to `bs-dependencies` in your `bsconfig.json` :
 
 ### Basic
 
-```reasonml
+```reason
 open BsReactAsync;
 
 let fetchSomeData = () => serviceThatReturnAPromise();
@@ -57,7 +57,7 @@ let make = () => {
 
 ### Components
 
-```reasonml
+```reason
 open BsReactAsync;
 
 let fetchSomeData = () => serviceThatReturnAPromise();
