@@ -13,7 +13,7 @@ module ReactAsync = {
     [@bs.get] external isSettled: t => bool = "isSettled";
     [@bs.get] external isFulfilled: t => bool = "isFulfilled";
     [@bs.get] external isInitial: t => bool = "isInitial";
-    [@bs.send] external reload: t => unit = "reload";
+    [@bs.send] external reload: (t, unit) => unit = "reload";
   };
 
   module Components = {
