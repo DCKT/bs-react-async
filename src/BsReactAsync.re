@@ -72,8 +72,18 @@ module ReactAsync = {
   };
 
   [@bs.module "react-async"]
-  external useAsync:
+  external useAsyncWithOptions:
     ('a => Js.Promise.t('b), ~options: options('c, 'd, 'e, 'f)=?, unit) =>
     Req.t =
     "useAsync";
+
+  [@bs.module "react-async"] external _useAsync: 'a => Req.t = "useAsync";
+
+  let useAsync = (~promiseFn, ~rest=?, ()) =>
+    _useAsync(
+      Js.Obj.assign(
+        {"promiseFn": promiseFn},
+        rest->Belt.Option.getWithDefault(Js.Obj.empty()),
+      ),
+    );
 };
