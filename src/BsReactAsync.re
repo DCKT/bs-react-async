@@ -79,11 +79,11 @@ module ReactAsync = {
 
   [@bs.module "react-async"] external _useAsync: 'a => Req.t = "useAsync";
 
-  let useAsync = (~promiseFn, ~rest=?, ()) =>
+  let useAsync = (~promiseFn, ~params=?, ()) =>
     _useAsync(
       Js.Obj.assign(
         {"promiseFn": promiseFn},
-        rest->Belt.Option.getWithDefault(Js.Obj.empty()),
+        params->Belt.Option.getWithDefault(Js.Obj.empty()),
       ),
     );
 };
