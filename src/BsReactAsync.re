@@ -17,14 +17,21 @@ module ReactAsync = {
   };
 
   module Components = {
-    module Pending = {
+    module IfInitial = {
       [@bs.module "react-async"] [@react.component]
       external make:
         (~state: Req.t, ~persist: bool=?, ~children: React.element) =>
         React.element =
-        "Pending";
+        "IfInitial";
     };
-    module Rejected = {
+    module IfPending = {
+      [@bs.module "react-async"] [@react.component]
+      external make:
+        (~state: Req.t, ~persist: bool=?, ~children: React.element) =>
+        React.element =
+        "IfPending";
+    };
+    module IfRejected = {
       [@bs.module "react-async"] [@react.component]
       external make:
         (
@@ -33,21 +40,21 @@ module ReactAsync = {
           ~children: Js.Exn.t => React.element
         ) =>
         React.element =
-        "Rejected";
+        "IfRejected";
     };
-    module Fulfilled = {
+    module IfFulfilled = {
       [@bs.module "react-async"] [@react.component]
       external make:
         (~state: Req.t, ~persist: bool=?, ~children: 'a => React.element) =>
         React.element =
-        "Fulfilled";
+        "IfFulfilled";
     };
-    module Settled = {
+    module IfSettled = {
       [@bs.module "react-async"] [@react.component]
       external make:
         (~state: Req.t, ~persist: bool=?, ~children: 'a => React.element) =>
         React.element =
-        "Settled";
+        "IfSettled";
     };
   };
 

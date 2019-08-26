@@ -1,6 +1,6 @@
 # bs-react-async
 
-🚧 Partial BuckleScript bindings for react-async. This will be updated if needed.
+🚧 Partial BuckleScript bindings for react-async v8. This will be updated if needed.
 
 ## Install
 
@@ -94,7 +94,7 @@ let make = () => {
           </div>
         }
       }
-    </Filfilled>
+    </Fulfilled>
   </>
 };
 ```
